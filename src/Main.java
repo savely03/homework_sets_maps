@@ -25,12 +25,13 @@ public class Main {
 
     public static void printUniqueEvenNumbers(List<Integer> nums) {
         System.out.println("Task2:");
-        Set<Integer> uniqueNums = new HashSet<>(nums);
-        uniqueNums.forEach(n -> {
-            if (n % 2 == 0) {
-                System.out.println(n);
+        int prevNumber = Integer.MIN_VALUE;
+        for (Integer num : nums) {
+            if (num % 2 == 0 && num != prevNumber) {
+                System.out.println(num);
+                prevNumber = num;
             }
-        });
+        }
         System.out.println();
     }
 
