@@ -14,6 +14,7 @@ public class Main {
 
     public static void printOddNumbers(List<Integer> nums) {
         System.out.println("Task1:");
+        Collections.sort(nums);
         nums.forEach(n -> {
             if (n % 2 != 0) {
                 System.out.println(n);
@@ -44,13 +45,9 @@ public class Main {
         System.out.println("Task3:");
         Map<String, Integer> map = new HashMap<>();
         words.forEach(word -> map.merge(word, 1, Integer::sum));
-        int numberOfDuplicates = 0;
-        for (int val : map.values()) {
-            if (val > 1) {
-                numberOfDuplicates += val;
-            }
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " - " + entry.getValue());
         }
-        System.out.println(numberOfDuplicates);
-        System.out.println();
+
     }
 }
